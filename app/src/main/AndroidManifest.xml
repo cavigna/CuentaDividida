@@ -3,6 +3,7 @@
     package="com.example.cuentadividida">
 
     <application
+        android:name=".application.ConsumoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

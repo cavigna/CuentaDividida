@@ -8,7 +8,7 @@ import com.example.cuentadividida.dao.ConsumoDao
 import com.example.cuentadividida.model.Consumo
 
 
-@Database(entities = arrayOf(Consumo::class), version = 1, exportSchema = false)
+@Database(entities = [Consumo::class], version = 1, exportSchema = false)
 abstract class BaseDeDatos : RoomDatabase(){
     abstract fun dao() : ConsumoDao
 

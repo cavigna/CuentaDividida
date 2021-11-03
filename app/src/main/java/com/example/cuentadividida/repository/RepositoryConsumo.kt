@@ -8,7 +8,7 @@ class RepositoryConsumo( private val dao: ConsumoDao) {
 
     val listar: Flow<List<Consumo>> = dao.listarTodos()
 
-    fun agregar(consumo: Consumo){
+    suspend fun agregar(consumo: Consumo){
         dao.agregarConsumo(consumo)
     }
 }

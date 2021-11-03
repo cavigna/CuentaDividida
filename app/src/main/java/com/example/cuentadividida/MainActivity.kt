@@ -2,13 +2,20 @@ package com.example.cuentadividida
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.example.cuentadividida.application.ConsumoApplication
 import com.example.cuentadividida.databinding.ActivityMainBinding
+import com.example.cuentadividida.viewmodel.ConsumoViewModel
+import com.example.cuentadividida.viewmodel.ConsumoViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+
+    private val viewModel : ConsumoViewModel by viewModels {
+        ConsumoViewModelFactory((application as ConsumoApplication).repository) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

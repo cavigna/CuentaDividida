@@ -4,4 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="listado">listado</string>
     <string name="agregar">Agregar</string>
+    <string name="agregar_consumo">Agregar Consumo</string>
+    <string name="nombre_item">Nombre Item</string>
+    <string name="precio_item">Precio</string>
+    <string name="cantidad_item">Cantidad</string>
 </resources>
