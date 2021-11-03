@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Proyectos_Android/CuentaDividida/app/src/main/res/layout/activity_main.xml" value="0.8" />
+        <entry key="..\:/Proyectos_Android/CuentaDividida/app/src/main/res/layout/activity_main.xml" value="0.18020833333333333" />
+        <entry key="..\:/Proyectos_Android/CuentaDividida/app/src/main/res/layout/fragment_home.xml" value="0.22083333333333333" />
+        <entry key="..\:/Proyectos_Android/CuentaDividida/app/src/main/res/layout/fragment_list.xml" value="0.1" />
+        <entry key="..\:/Proyectos_Android/CuentaDividida/app/src/main/res/menu/menu_consumo.xml" value="0.1" />
       </map>
     </option>
   </component>

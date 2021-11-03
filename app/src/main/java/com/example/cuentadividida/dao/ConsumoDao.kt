@@ -1,11 +1,13 @@
 package com.example.cuentadividida.dao
 
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.cuentadividida.model.Consumo
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface ConsumoDao {
 
     @Insert
