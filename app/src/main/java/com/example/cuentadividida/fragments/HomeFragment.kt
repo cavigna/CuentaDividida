@@ -1,6 +1,7 @@
 package com.example.cuentadividida.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import androidx.core.view.get
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -38,6 +40,10 @@ class HomeFragment : Fragment() {
     private lateinit var boton: Button
 
     private lateinit var fab: FloatingActionButton
+    private lateinit var spinner : AutoCompleteTextView
+
+
+    private var nombreEvento = ""
 
 
     override fun onCreateView(
@@ -59,6 +65,7 @@ class HomeFragment : Fragment() {
             tilCantidad = tiCantidad
             boton = botonAgregar
             fab = floatingActionButton
+            spinner = (tilNombreEvento.editText as? AutoCompleteTextView)!!
         }
 
 
@@ -67,29 +74,36 @@ class HomeFragment : Fragment() {
         //var items = listOf("No hay Eventos Cargados")
         viewModel.listadoEventos.observe(viewLifecycleOwner, {
 
+
             if (viewModel.listadoEventos.value?.isNullOrEmpty() == false) {
                 var items = viewModel.listadoEventos.value!!
                 val adapter = ArrayAdapter(requireContext(), R.layout.eventos_list_item, items)
-                (binding.tilNombreEvento.editText as? AutoCompleteTextView)!!.setAdapter(adapter)
+
+
+                spinner.setAdapter(adapter)
+
+                spinner.setOnItemClickListener { adapterView, view, i, l ->
+                    nombreEvento = items[i]
+
+                }
+
             }else{
                 var items = listOf("No hay Eventos Cargados")
                 val adapter = ArrayAdapter(requireContext(), R.layout.eventos_list_item, items)
                 (binding.tilNombreEvento.editText as? AutoCompleteTextView)!!.setAdapter(adapter)
             }
-
-
-//            val adapter = ArrayAdapter(requireContext(), R.layout.eventos_list_item, items)
-//            (binding.tilNombreEvento.editText as? AutoCompleteTextView)!!.setAdapter(adapter)
-
         })
 
 
 
         boton.setOnClickListener {
             val nombre = tilNombre.editText?.text.toString()
-            val precio = tilPrecio.editText?.text.toString().toInt()
-            val cantidad = tilCantidad.editText?.text.toString().toInt()
-            val nombreEvento = "Evento 1"
+            val precio = tilPrecio.editText?.text.toString().toInt() ?:0
+            val cantidad = tilCantidad.editText?.text.toString().toInt() ?:0
+
+
+
+
 
 
             val consumo = Consumo(nombreEvento, nombre, precio, cantidad)
@@ -111,31 +125,3 @@ class HomeFragment : Fragment() {
 }
 
 
-/*
-
-//            val sinEventos =ArrayList<String>()
-//            sinEventos.add("No")
-//
-//            var items: List = if (viewModel.listadoNombreDelEvento.value != null) {
-//                viewModel.listadoNombreDelEvento.value
-//            }else{
-//              sinEventos
-//            }
-            //var items = viewModel.listadoNombreDelEvento.value!!
- */
-
-
-/*
-        var items = listOf("No hay Eventos Cargados")
-        viewModel.listadoNombreDelEvento.observe(viewLifecycleOwner, {
-
-            if (viewModel.listadoNombreDelEvento.value?.isNullOrEmpty() == false) {
-                items = viewModel.listadoNombreDelEvento.value!!
-            }
-
-
-            val adapter = ArrayAdapter(requireContext(), R.layout.eventos_list_item, items)
-            (binding.tilNombreEvento.editText as? AutoCompleteTextView)?.setAdapter(adapter)
-
-        })
-*/
