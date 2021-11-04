@@ -6,9 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.cuentadividida.dao.ConsumoDao
 import com.example.cuentadividida.model.Consumo
+import com.example.cuentadividida.model.Evento
 
 
-@Database(entities = [Consumo::class], version = 1, exportSchema = false)
+@Database(entities = [Consumo::class, Evento::class], version = 1, exportSchema = false)
 abstract class BaseDeDatos : RoomDatabase(){
     abstract fun dao() : ConsumoDao
 
@@ -23,7 +24,7 @@ abstract class BaseDeDatos : RoomDatabase(){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     BaseDeDatos::class.java,
-                    "word_database"
+                    "consumo_database"
                 ).build()
                 INSTANCE = instance
 

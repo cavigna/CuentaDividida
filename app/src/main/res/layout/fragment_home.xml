@@ -21,16 +21,38 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiNombre"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:id="@+id/tilNombreEvento"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="56dp"
+        android:hint="@string/nombre_del_evento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo">
+
+        <AutoCompleteTextView
+            android:id="@+id/filled_exposed_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tiNombre"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilNombreEvento">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextNombre"
@@ -42,12 +64,12 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tiPrecio"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/tiCantidad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tiNombre">
 
@@ -57,19 +79,18 @@
             android:layout_height="wrap_content"
             android:hint="@string/precio_item"
             android:inputType="number" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tiCantidad"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiPrecio">
+        app:layout_constraintTop_toBottomOf="@+id/tiNombre">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextCantidad"
@@ -83,27 +104,27 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="52dp"
         android:text="Total"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiCantidad" />
+        app:layout_constraintTop_toBottomOf="@+id/tiPrecio" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="15dp"
         android:text="Total"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiCantidad" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Button
         android:id="@+id/botonAgregar"
@@ -117,5 +138,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="192dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tiCantidad"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

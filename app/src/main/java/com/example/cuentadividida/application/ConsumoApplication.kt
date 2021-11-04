@@ -6,6 +6,6 @@ import com.example.cuentadividida.repository.RepositoryConsumo
 
 class ConsumoApplication: Application() {
 
-    val database by lazy { BaseDeDatos.getDataBase(this) }
+    private val database by lazy { BaseDeDatos.getDataBase(this) }
     val repository by lazy{RepositoryConsumo(database.dao())}
 }
