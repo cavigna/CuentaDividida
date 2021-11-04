@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 class RepositoryConsumo(private val dao: ConsumoDao) {
 
     val listar: Flow<List<Consumo>> = dao.listarTodos()
-    val listadoNombreEvento:Flow<List<String>> = dao.listadoNombreDeEventos()
+    val listadoNombreEvento:Flow<List<String>> = dao.listadoEventos()
 
     val listarEventos: Flow<List<String>> = dao.listadoEventos()
 

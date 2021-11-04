@@ -9,10 +9,23 @@
         android:id="@+id/homeFragment"
         android:name="com.example.cuentadividida.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_eventoAddFragment"
+            app:destination="@id/eventoAddFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.cuentadividida.fragments.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" />
+    <fragment
+        android:id="@+id/eventoAddFragment"
+        android:name="com.example.cuentadividida.fragments.EventoAddFragment"
+        android:label="fragment_evento_add"
+        tools:layout="@layout/fragment_evento_add" >
+        <action
+            android:id="@+id/action_eventoAddFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

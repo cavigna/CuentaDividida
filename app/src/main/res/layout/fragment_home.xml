@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tilNombreEvento">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNombre"
+            android:id="@+id/editTextNombreEvento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nombre_item" />

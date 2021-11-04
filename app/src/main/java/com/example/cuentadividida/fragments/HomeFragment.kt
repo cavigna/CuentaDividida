@@ -9,6 +9,9 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.cuentadividida.R
 import com.example.cuentadividida.application.ConsumoApplication
 import com.example.cuentadividida.databinding.FragmentHomeBinding
@@ -56,22 +59,27 @@ class HomeFragment : Fragment() {
             tilCantidad = tiCantidad
             boton = botonAgregar
             fab = floatingActionButton
-
-
         }
+
 
         // val items = listOf("Option 1", "Option 2", "Option 3", "Option 4")
 
-        var items = listOf("No hay Eventos Cargados")
+        //var items = listOf("No hay Eventos Cargados")
         viewModel.listadoEventos.observe(viewLifecycleOwner, {
 
             if (viewModel.listadoEventos.value?.isNullOrEmpty() == false) {
-                items = viewModel.listadoEventos.value!!
+                var items = viewModel.listadoEventos.value!!
+                val adapter = ArrayAdapter(requireContext(), R.layout.eventos_list_item, items)
+                (binding.tilNombreEvento.editText as? AutoCompleteTextView)!!.setAdapter(adapter)
+            }else{
+                var items = listOf("No hay Eventos Cargados")
+                val adapter = ArrayAdapter(requireContext(), R.layout.eventos_list_item, items)
+                (binding.tilNombreEvento.editText as? AutoCompleteTextView)!!.setAdapter(adapter)
             }
 
 
-            val adapter = ArrayAdapter(requireContext(), R.layout.eventos_list_item, items)
-            (binding.tilNombreEvento.editText as? AutoCompleteTextView)!!.setAdapter(adapter)
+//            val adapter = ArrayAdapter(requireContext(), R.layout.eventos_list_item, items)
+//            (binding.tilNombreEvento.editText as? AutoCompleteTextView)!!.setAdapter(adapter)
 
         })
 
@@ -87,6 +95,10 @@ class HomeFragment : Fragment() {
             val consumo = Consumo(nombreEvento, nombre, precio, cantidad)
 
             viewModel.agregarConsumo(consumo)
+        }
+
+        fab.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_eventoAddFragment)
         }
 
 
