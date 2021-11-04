@@ -5,14 +5,16 @@ import androidx.lifecycle.asLiveData
 import com.example.cuentadividida.dao.ConsumoDao
 import com.example.cuentadividida.model.Consumo
 import com.example.cuentadividida.model.Evento
+import com.example.cuentadividida.model.TotalEvento
 import kotlinx.coroutines.flow.Flow
 
 class RepositoryConsumo(private val dao: ConsumoDao) {
 
     val listar: Flow<List<Consumo>> = dao.listarTodos()
-    val listadoNombreEvento:Flow<List<String>> = dao.listadoEventos()
+    val listarEventos:Flow<List<String>> = dao.listadoEventos()
+    val agrupadoPorEvento:Flow<List<TotalEvento>> = dao.agrupadoPorEvento()
 
-    val listarEventos: Flow<List<String>> = dao.listadoEventos()
+
 
 
     suspend fun agregarConsumo(consumo: Consumo) {

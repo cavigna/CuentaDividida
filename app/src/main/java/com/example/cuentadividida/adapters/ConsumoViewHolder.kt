@@ -7,6 +7,7 @@ import android.view.ViewParent
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cuentadividida.databinding.ItemRowBinding
 import com.example.cuentadividida.model.Consumo
+import com.example.cuentadividida.model.TotalEvento
 
 class ConsumoViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
 
@@ -20,10 +21,10 @@ class ConsumoViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
 
         }
     }
-    fun unirDatos(consumo: Consumo){
+    fun unirDatos(totalEvento: TotalEvento){
         with(binding){
-            tvRowNombreEvento.text = consumo.nombreEvento
-            tvRowNombreItem.text= consumo.nombre
+            tvRowNombreEvento.text = totalEvento.nombreEvento
+            tvRowNombreItem.text= totalEvento.total.toString()
             //tvRowTotal.text = con
         }
 

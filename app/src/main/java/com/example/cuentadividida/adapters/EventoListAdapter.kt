@@ -4,28 +4,28 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.cuentadividida.model.Consumo
+import com.example.cuentadividida.model.TotalEvento
 
-class EventoListAdapter:ListAdapter<Consumo, ConsumoViewHolder>(ConsumoComparator()) {
+class EventoListAdapter:ListAdapter<TotalEvento, ConsumoViewHolder>(ConsumoComparator()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConsumoViewHolder {
         return ConsumoViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: ConsumoViewHolder, position: Int) {
-        val consumo = getItem(position)
-
-        holder.unirDatos(consumo)
+        val totalEvento = getItem(position)
+        holder.unirDatos(totalEvento)
     }
 
 
 }
 
-class ConsumoComparator : DiffUtil.ItemCallback<Consumo>(){
-    override fun areItemsTheSame(oldItem: Consumo, newItem: Consumo): Boolean {
+class ConsumoComparator : DiffUtil.ItemCallback<TotalEvento>(){
+    override fun areItemsTheSame(oldItem: TotalEvento, newItem: TotalEvento): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: Consumo, newItem: Consumo): Boolean {
-        return  oldItem.id == newItem.id
+    override fun areContentsTheSame(oldItem: TotalEvento, newItem: TotalEvento): Boolean {
+        return  oldItem.nombreEvento == newItem.nombreEvento
     }
 
 }

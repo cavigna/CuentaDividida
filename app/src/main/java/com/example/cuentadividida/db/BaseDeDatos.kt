@@ -49,19 +49,36 @@ abstract class BaseDeDatos : RoomDatabase() {
                     val dao = database.dao()
 
                     var evento = Evento("Evento 42")
-                    var consumo = Consumo(evento.nombreEvento, "Toalla", 1, 10)
                     dao.agregarEvento(evento)
+                    var nombreEv = evento.nombreEvento
+                    var consumo = Consumo(nombreEv, "Toalla", 50, 10)
+                    dao.agregarConsumo(consumo)
+                    consumo = Consumo(nombreEv, "agua", 3, 25)
                     dao.agregarConsumo(consumo)
 
-                    evento = Evento("Dia de la Toalla")
-                    consumo = Consumo(evento.nombreEvento, "cerveza", 5, 20)
+                    evento = Evento("San Patricio")
+                    nombreEv = evento.nombreEvento
                     dao.agregarEvento(evento)
+
+                    consumo = Consumo(nombreEv, "cerveza", 5, 20)
                     dao.agregarConsumo(consumo)
+
+                    consumo = Consumo(evento.nombreEvento, "cerveza", 5, 20)
+                    dao.agregarConsumo(consumo)
+
+                    consumo = Consumo(evento.nombreEvento, "pancho", 1, 50)
+                    dao.agregarConsumo(consumo)
+
+
 
 
                 }
             }
         }
+
+    }
+
+    private fun agregarConsumo(evento: Evento, consumo: Consumo, dao: ConsumoDao){
 
     }
 }

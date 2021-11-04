@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import com.example.cuentadividida.model.Consumo
 import com.example.cuentadividida.model.Evento
+import com.example.cuentadividida.model.TotalEvento
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.selects.select
 
@@ -31,6 +32,12 @@ interface ConsumoDao {
 
     @Query("select nombre_evento from consumo")
     fun listadoNombreDeEventos():Flow<List<String>>
+
+
+
+
+    @Query("select nombre_evento as nombreEvento ,SUM(consumo.totalItem) as total from consumo group by nombre_evento")
+    fun agrupadoPorEvento():Flow<List<TotalEvento>>
 
 
     /*=================== EVENTOS ======================================*/

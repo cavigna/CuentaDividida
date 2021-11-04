@@ -3,6 +3,7 @@ package com.example.cuentadividida.viewmodel
 import androidx.lifecycle.*
 import com.example.cuentadividida.model.Consumo
 import com.example.cuentadividida.model.Evento
+import com.example.cuentadividida.model.TotalEvento
 import com.example.cuentadividida.repository.RepositoryConsumo
 
 import kotlinx.coroutines.launch
@@ -11,12 +12,13 @@ import kotlinx.coroutines.launch
 class ConsumoViewModel(private val repository: RepositoryConsumo) : ViewModel() {
 
 
-    val listadoNombreDelEvento: LiveData<List<String>> = repository.listadoNombreEvento.asLiveData()
-    val listadoEventos: LiveData<List<String>> = repository.listadoNombreEvento.asLiveData()
+
+    val listadoEventos: LiveData<List<String>> = repository.listarEventos.asLiveData()
+    val agrupadoPorEvento :LiveData<List<TotalEvento>> = repository.agrupadoPorEvento.asLiveData()
 
 
 
-    //val nombresDeEventos = mutableListOf<String>()
+
 
 
     val listado: LiveData<List<Consumo>> = repository.listar.asLiveData()

@@ -19,7 +19,8 @@ data class Consumo(
     val nombre: String,
     val cantidad: Int,
     val precio: Int,
-    val total: Int = cantidad * precio,
+    val totalItem: Int = cantidad * precio,
+    val totales: Int =0,
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
 
