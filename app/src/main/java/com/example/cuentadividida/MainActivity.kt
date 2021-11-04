@@ -14,8 +14,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
+    //val viewModel: ConsumoViewModel by viewModels()
+
+
     private val viewModel : ConsumoViewModel by viewModels {
-        ConsumoViewModelFactory((application as ConsumoApplication).repository) }
+        ConsumoViewModelFactory((application as ConsumoApplication).repository) }// ===> new ConsumoViewModel(repository)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

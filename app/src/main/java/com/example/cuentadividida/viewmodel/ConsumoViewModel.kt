@@ -5,6 +5,7 @@ import com.example.cuentadividida.model.Consumo
 import com.example.cuentadividida.model.Evento
 import com.example.cuentadividida.model.TotalEvento
 import com.example.cuentadividida.repository.RepositoryConsumo
+import kotlinx.coroutines.CoroutineScope
 
 import kotlinx.coroutines.launch
 
@@ -28,9 +29,12 @@ class ConsumoViewModel(private val repository: RepositoryConsumo) : ViewModel() 
     }
 
     fun agregarConsumo(consumo: Consumo) {
+
         viewModelScope.launch {
             repository.agregarConsumo(consumo)
         }
+
+
     }
 
     /*=================== EVENTOS ======================================*/
@@ -91,4 +95,17 @@ class WordViewModelFactory(private val repository: WordRepository) : ViewModelPr
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
+ */
+
+
+/*
+
+
+ACTIVIDAD ==> VIEWMODEL  ===> REPOSITORIO ===> CONSULTAR DAO ===> IMPLEMNTADO EN LA BASE DE DATOS
+
+
+
+
+
+
  */

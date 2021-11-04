@@ -9,10 +9,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import com.example.cuentadividida.R
 import com.example.cuentadividida.application.ConsumoApplication
+import com.example.cuentadividida.dao.ConsumoDao
 import com.example.cuentadividida.databinding.FragmentEventoAddBinding
+import com.example.cuentadividida.db.BaseDeDatos
 import com.example.cuentadividida.model.Evento
+import com.example.cuentadividida.repository.RepositoryConsumo
 import com.example.cuentadividida.viewmodel.ConsumoViewModel
 import com.example.cuentadividida.viewmodel.ConsumoViewModelFactory
 
@@ -22,9 +26,14 @@ class EventoAddFragment : Fragment() {
     private lateinit var etEvNombre: EditText
     private lateinit var boton: Button
     private lateinit var application: Application
+
     val viewModel: ConsumoViewModel by activityViewModels {
         ConsumoViewModelFactory((application as ConsumoApplication).repository)
     }
+
+    private lateinit var pruebaModel: ConsumoViewModel
+    private lateinit var repositoryConsumo: RepositoryConsumo
+    private lateinit var factory: ConsumoViewModelFactory
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +50,13 @@ class EventoAddFragment : Fragment() {
         binding = FragmentEventoAddBinding.inflate(layoutInflater, container, false)
 
         hacerBinding()
+
+//        repositoryConsumo = repositoryConsumo(BaseDeDatos.getDataBase(this).dao())
+//        factory =  ConsumoViewModelFactory(repositoryConsumo)
+//        pruebaModel = ViewModelProvider(this, factory).get(ConsumoViewModel::class.java)
+
+
+
 
         boton.setOnClickListener{
             val nombre = etEvNombre.text.toString()
