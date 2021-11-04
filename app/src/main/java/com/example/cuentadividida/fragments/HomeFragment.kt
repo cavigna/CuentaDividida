@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.get
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
@@ -18,6 +20,7 @@ import com.example.cuentadividida.R
 import com.example.cuentadividida.application.ConsumoApplication
 import com.example.cuentadividida.databinding.FragmentHomeBinding
 import com.example.cuentadividida.model.Consumo
+import com.example.cuentadividida.utils.Extensions.hideKeyboard
 import com.example.cuentadividida.viewmodel.ConsumoViewModel
 import com.example.cuentadividida.viewmodel.ConsumoViewModelFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -68,6 +71,9 @@ class HomeFragment : Fragment() {
             spinner = (tilNombreEvento.editText as? AutoCompleteTextView)!!
         }
 
+
+        fun Fragment.hideKeyboard() = ViewCompat.getWindowInsetsController(requireView())
+            ?.hide(WindowInsetsCompat.Type.ime())
 
         // val items = listOf("Option 1", "Option 2", "Option 3", "Option 4")
 
